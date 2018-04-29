@@ -1,0 +1,16 @@
+<div id="what">
+	<ul class="horizontal">
+	  <li><a href="./">Boosted.exe</a></li>
+	  <li><a href="./board">Boards</a></li>
+	  <li><a href="https://leagueoflegends.com">News</a></li>
+	  <li *ngIf="afAuth.authState | async as user"><a href="./profile/me">Profile</a></li>
+	  <li *ngIf="afAuth.authState | async as user; else showLogin"><div (click)="logout()" id="login">Logout</div></li>
+	  <ng-template #showLogin>
+	  	<li id="login"><a href="./login">Login</a></li>
+	  </ng-template>
+	</ul> 
+<div>
+<h1>Boosted.exe</h1>
+<form id="summonersubmit" class="search-summoner">
+    <input id="search" type="text" name="username" placeholder="Summoner Name"/>
+</form>
