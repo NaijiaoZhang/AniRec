@@ -22,12 +22,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { VueprofComponent } from './vueprof/vueprof.component';
 
 const firebaseConfig = {
-	apiKey: "AIzaSyBZ2Zbj1S14vOdtB_SpaHmK-BTtqlSiyEA",
-    authDomain: "boostedexe-26331.firebaseapp.com",
-    databaseURL: "https://boostedexe-26331.firebaseio.com",
-    projectId: "boostedexe-26331",
-    storageBucket: "boostedexe-26331.appspot.com",
-    messagingSenderId: "62201867663"
+	  apiKey: "AIzaSyBRRJZkyxmJRGhYdLKn4wSKsfaT9khdKfU",
+    authDomain: "anirec-9b515.firebaseapp.com",
+    databaseURL: "https://anirec-9b515.firebaseio.com",
+    projectId: "anirec-9b515",
+    storageBucket: "",
+    messagingSenderId: "554256400812"
 }
 
 @NgModule({

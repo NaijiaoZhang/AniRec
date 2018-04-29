@@ -15,19 +15,23 @@ export class HomeComponent implements OnInit {
   constructor(private router:Router,private afAuth: AngularFireAuth,private authService:AuthService) { }
 
   ngOnInit() {
-  	let routerRef = this.router; 
-  	$('#summonersubmit').keypress(function(e){
-  		let code = e.keyCode;
-  		if (code === 13){
-  			let search = $('#search').val(); 
-  			console.log('/user/'+search);
-  			routerRef.navigate(['user',search]);
-  			$('#summonersubmit').submit();
-  		}
-  	})
-  	$("#summonersubmit").submit(function(e){
-        e.preventDefault();
-    });
+    console.log('here');
+    $.get('./api/test',function(data){
+      console.log(data);
+    })
+  	// let routerRef = this.router; 
+  	// $('#summonersubmit').keypress(function(e){
+  	// 	let code = e.keyCode;
+  	// 	if (code === 13){
+  	// 		let search = $('#search').val(); 
+  	// 		console.log('/user/'+search);
+  	// 		routerRef.navigate(['user',search]);
+  	// 		$('#summonersubmit').submit();
+  	// 	}
+  	// })
+  	// $("#summonersubmit").submit(function(e){
+   //      e.preventDefault();
+   //  });
   }
 
   logout(){
