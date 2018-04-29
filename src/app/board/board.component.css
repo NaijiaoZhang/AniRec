@@ -1,15 +1,26 @@
 h1{
-	text-align:center;
-	margin-top:1%;
+    text-align:center;
+    margin-top:1%;
 }
 
 h2{
-	text-align: center;
+    text-align: center;
 }
 
 input{
-	color:#9b9b9b;
-;
+    color:#9b9b9b;
+}
+.threadpick{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.threadpick:hover{
+    background-color: #111;
+    cursor: pointer;
 }
 
 .board{
@@ -23,11 +34,11 @@ input{
 }
 
 .threads{
-	margin-top:1%;
+    margin-top:1%;
 }
 
 #threadcontainer{
-	margin-left:2%;
+    margin-left:2%;
 }
 
 .horizontal{
@@ -75,7 +86,7 @@ li a:hover {
 }
 
 a{
-	display: block;
+    display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
@@ -83,10 +94,10 @@ a{
 }
 
 a:hover{
-	background-color: #111;
+    background-color: #111;
 }
 
 #login{
-	position:fixed;
-	right:0px;
+    position:fixed;
+    right:0px;
 }

@@ -5,4 +5,6 @@ body{
 	background: linear-gradient(to right, #3f4c6b, #606c88); 
 	font-family: "Impact";
 	color:#fcfcff;
+	overflow-x:hidden;
+	max-width:100%;
 }

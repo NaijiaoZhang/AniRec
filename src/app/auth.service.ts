@@ -21,19 +21,19 @@ export class AuthService {
         console.log(this.loggedInUser+" authlogin");
         this.router.navigateByUrl('/');
       })
-      .catch(err => {
-        console.log('Something went wrong: ', err.message);
+      .catch(error => {
+        alert(error);
       });
   }
 
-  emailSignup(email: string, password: string) {
+  emailSignup(email: string, password: string, username:string) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then(value => {
-        this.db.object("profiles/"+email.replace(/\./g,'%2E')).set({"Bio":"N/A","IGN":"N/A"});
+        this.db.object("profiles/"+email.replace(/\./g,'%2E')).set({"Bio":"N/A","Username":username});
         this.router.navigateByUrl('/');
       })
       .catch(error => {
-        console.log('Something went wrong: ', error);
+        alert(error);
       });
   }
 

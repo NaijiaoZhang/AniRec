@@ -3,6 +3,7 @@ import { AuthService } from '../auth.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 
 
@@ -23,7 +24,7 @@ export class BoardComponent implements OnInit {
 	threadsArray=[];
 	toDelete;
 
-	constructor(private afAuth: AngularFireAuth, private authService:AuthService,private db: AngularFireDatabase) { }
+	constructor(private router:Router,private afAuth: AngularFireAuth, private authService:AuthService,private db: AngularFireDatabase) { }
 
 	ngOnInit() {
 		this.userName = this.afAuth.authState;
@@ -48,6 +49,22 @@ export class BoardComponent implements OnInit {
 	logout(){
 		this.authService.logout(); 
 	}
+
+	goBoards(){
+    	this.router.navigateByUrl('/board');
+  	}
+
+	goLogin(){
+	    this.router.navigateByUrl('/login');
+	}
+
+    goMe(){
+    	this.router.navigateByUrl('/profile/me');
+    }
+
+    goThread(thread){
+    	this.router.navigateByUrl('/thread/'+thread);
+    }
 
 	newThread(){
 		this.db.object("threads/"+this.newThreadName).set({"comment1000001":{"name":"Oversear","content": "Keep the thread SFW."}}); 

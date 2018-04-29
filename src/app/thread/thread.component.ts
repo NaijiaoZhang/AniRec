@@ -6,6 +6,8 @@ import { SummonersService } from '../summoners.service';
 import { AuthService } from '../auth.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
+import { Router } from '@angular/router';
+
 import * as $ from 'jquery';
 
 @Component({
@@ -21,7 +23,7 @@ export class ThreadComponent implements OnInit {
 	commentName=[];
 	commentInfo=[];
 
-	constructor(private afAuth: AngularFireAuth, private authService:AuthService,private db: AngularFireDatabase,private route: ActivatedRoute) { }
+	constructor(private router:Router, private afAuth: AngularFireAuth, private authService:AuthService,private db: AngularFireDatabase,private route: ActivatedRoute) { }
 
 	ngOnInit() {
 		this.threadName = this.route.snapshot.paramMap.get('threadname');
@@ -42,4 +44,23 @@ export class ThreadComponent implements OnInit {
 		this.db.object("threads/"+this.threadName+"/comment"+index).set({"name":"naijiao.zhang@duke.edu","content":this.commentText});
 	}
 
+	goBoards(){
+    	this.router.navigateByUrl('/board');
+  	}
+
+  	goLogin(){
+    	this.router.navigateByUrl('/login');
+  	}
+
+  	goMe(){
+    	this.router.navigateByUrl('/profile/me');
+  	}
+
+  	goProfile(prof){
+  		this.router.navigateByUrl('/profile/'+prof);
+  	}
+
+  	logout(){
+		this.authService.logout(); 
+	}
 }

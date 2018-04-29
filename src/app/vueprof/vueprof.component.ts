@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vueprof',
@@ -15,7 +16,7 @@ export class VueprofComponent implements OnInit {
 	email;
 	dataObs:Observable<any>;
 	data;
-	constructor(private afAuth: AngularFireAuth, private authService:AuthService,private db: AngularFireDatabase,private route: ActivatedRoute) { }
+	constructor(private router:Router,private afAuth: AngularFireAuth, private authService:AuthService,private db: AngularFireDatabase,private route: ActivatedRoute) { }
 
 	ngOnInit() {
 		this.email = this.route.snapshot.paramMap.get('user');
@@ -25,4 +26,15 @@ export class VueprofComponent implements OnInit {
 		});
 	}
 
+	goBoards(){
+    	this.router.navigateByUrl('/board');
+  	}
+
+  	goLogin(){
+    	this.router.navigateByUrl('/login');
+  	}
+
+  	goMe(){
+    	this.router.navigateByUrl('/profile/me');
+  	}
 }

@@ -1,10 +1,12 @@
-<h1>Boosted.exe</h1>
+<h1>AniRec</h1>
 <form class="loginform">
 	<div id="login-container">	
 		Email:<br>
 	 	<input [(ngModel)]="email" name="email" placeholder="Email"/><br>
 	 	Password:<br>
 	  	<input [(ngModel)]="password" name="password" placeholder="Password"/><br>
+	  	Username:<br>
+	  	<input [(ngModel)]="username" name="username" placeholder="Username (Sign up only)"/><br>
 	  	<button class ="btn btn-success" (click)=login()>Login</button>
 	  	<button class ="btn btn-success" (click)=register()>Register</button>
 	</div>

@@ -7,25 +7,26 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-	email:string; 
-  	password:string; 
+  email:string; 
+  password:string; 
+  username:string;
  
-	constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService) { }
 
-	ngOnInit() {
-  	}
+  ngOnInit() {
+    }
 
-  	login(){
-  		if(this.email!="" && this.password!=""){
-  			this.authService.login(this.email,this.password);
-  		}
-  	}
+    login(){
+      if(this.email!="" && this.password!=""){
+        this.authService.login(this.email,this.password);
+      }
+    }
 
-  	register(){
-  		//prolly needed additional regex
-  		if(this.email!="" && this.password!=""){
-  			this.authService.emailSignup(this.email,this.password);
-  		}
-  	}
+    register(){
+      //prolly needed additional regex
+      if(this.email!="" && this.password!="" && this.username!=""){
+        this.authService.emailSignup(this.email,this.password,this.username);
+      }
+    }
 
 }

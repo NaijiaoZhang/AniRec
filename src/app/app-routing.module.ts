@@ -12,7 +12,7 @@ import { VueprofComponent } from './vueprof/vueprof.component';
 const routes:Routes = [
 	{ path: '', component:HomeComponent},
 	{ path: 'login', component: LoginComponent },
-	{ path: 'user/:username',component:SummonerComponent},
+	{ path: 'anime/:title',component:SummonerComponent},
 	{ path: 'board', component: BoardComponent},
 	{ path: 'thread/:threadname', component: ThreadComponent},
 	{ path: 'profile/me', component: ProfileComponent},

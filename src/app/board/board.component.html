@@ -1,12 +1,12 @@
 <div id="what">
 	<ul class="horizontal">
 	  <li><a href="./">AniRec</a></li>
-	  <li><a href="./board">Boards</a></li>
+	  <li><div (click)="goBoards()">Boards</div></li>
 	  <li><a href="https://www.reddit.com/r/anime/">News</a></li>
-	  <li *ngIf="afAuth.authState | async as user"><a href="./profile/me">Profile</a></li>
+	  <li *ngIf="afAuth.authState | async as user"><div (click)="goMe()">Profile</div></li>
 	  <li *ngIf="afAuth.authState | async as user; else showLogin"><div (click)="logout()" id="login">Logout</div></li>
 	  <ng-template #showLogin>
-	  	<li id="login"><a href="./login">Login</a></li>
+	  	<li id="login"><div (click)="goLogin()">Login</div></li>
 	  </ng-template>
 	</ul> 
 <div>

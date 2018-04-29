@@ -1,10 +1,22 @@
 h1{
-	text-align:center;
-	margin-top:1%;
+    text-align:center;
+    margin-top:1%;
 }
 
 h2{
-	text-align: center;
+    text-align: center;
+}
+
+.profpick{
+    color:white;
+    display:inline;
+}
+
+.profpick:hover{
+    color: #4286f4;
+    text-decoration: none;
+    cursor:pointer;
+    display:inline;
 }
 
 .board{
@@ -23,11 +35,11 @@ h2{
 }
 
 .threads{
-	margin-top:1%;
+    margin-top:1%;
 }
 
 #threadcontainer{
-	margin-left:2%;
+    margin-left:2%;
 }
 
 .horizontal{
@@ -75,17 +87,17 @@ li a:hover {
 }
 
 a{
-	color:white;
+    color:white;
 }
 
 a:hover{
-	color: #4286f4;
+    color: #4286f4;
     text-decoration: none;
 }
 
 #login{
-	position:fixed;
-	right:0px;
+    position:fixed;
+    right:0px;
 }
 
 #commentbox{
