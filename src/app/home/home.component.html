@@ -1,7 +1,6 @@
 <div id="what">
 	<ul class="horizontal">
 	  <li><a href="./">AniRec</a></li>
-	  <li><div (click)="goBoards()">Boards</div></li>
 	  <li><a href="https://www.reddit.com/r/anime/">News</a></li>
 	  <li *ngIf="afAuth.authState | async as user"><div (click)="goMe()">Profile</div></li>
 	  <li *ngIf="afAuth.authState | async as user; else showLogin"><div (click)="logout()" id="login">Logout</div></li>
@@ -11,6 +10,6 @@
 	</ul> 
 <div>
 <h1>AniRec</h1>
-<form id="summonersubmit" class="search-summoner">
-    <input id="search" type="text" name="username" placeholder="Search Anime"/>
+<form id="summonersubmit" class="search-summoner" autocomplete="off">
+    <input id="search" type="text" name="username" placeholder="Search Anime" autocomplete="off" />
 </form>

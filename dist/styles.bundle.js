@@ -3,7 +3,7 @@ webpackJsonp(["styles"],{
 /***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/styles.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\nbody{\n\tbackground: #606c88;    \n\tbackground: -webkit-gradient(linear, left top, right top, from(#3f4c6b), to(#606c88));    \n\tbackground: linear-gradient(to right, #3f4c6b, #606c88); \n\tfont-family: \"Impact\";\n\tcolor:#fcfcff;\n\toverflow-x:hidden;\n\tmax-width:100%;\n}"
+module.exports = "/* You can add global styles to this file, and also import other style files */\nbody{\n\tbackground: #606c88;    \n\tbackground: -webkit-gradient(linear, left top, right top, from(#3f4c6b), to(#606c88));    \n\tbackground: linear-gradient(to right, #3f4c6b, #606c88); \n\tfont-family: \"Impact\";\n\tcolor:#fcfcff;\n\toverflow-x:hidden;\n\tmax-width:100%;\n}\n.ui-autocomplete {\n\tmax-width:35%;\n    background: #4a4a4a;\n    border-radius: 1px;\n    list-style-type: none;\n}\n.ui-menu-item:hover{\n\tcursor:pointer;\n\tcolor:#4286f4;\n}\n\n"
 
 /***/ }),
 

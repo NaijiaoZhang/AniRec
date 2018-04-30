@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
        }
        $("#search").autocomplete({ 
             source: function(request, response) {
+              $(".ui-helper-hidden-accessible").hide();
               request.term = request.term.charAt(0).toUpperCase()+request.term.slice(1);
               var results = $.ui.autocomplete.filter(that.allAnime, request.term);
               var correctedResults = [];

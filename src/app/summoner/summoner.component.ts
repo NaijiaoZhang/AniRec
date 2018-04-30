@@ -21,7 +21,7 @@ declare var $: any;
 export class SummonerComponent implements OnInit {
 	animeTitle:string; 
 	similarTitles;
-	sanitizedImages=[];
+	innerHTMLSAN;
 
 	constructor(private _sanitizer: DomSanitizer,private router:Router,private authService:AuthService,private afAuth: AngularFireAuth,private dataService: SummonersService, private db: AngularFireDatabase, private route: ActivatedRoute, private location:Location) { }
 
@@ -30,11 +30,15 @@ export class SummonerComponent implements OnInit {
 		$('.ui-helper-hidden-accessible').remove(); 
 		$.get('./api/simAnime/'+this.animeTitle, data=>{
 			this.similarTitles = data['results'];
+			for(var k in this.similarTitles){
+				this.similarTitles[k]['url']= this.sanitizeImage(this.similarTitles[k]['url']);
+			}
 		});
 	}
 
 	public sanitizeImage(image: string) {
-    	return this._sanitizer.bypassSecurityTrustStyle('url('+image+')');
+		console.log(this._sanitizer.bypassSecurityTrustStyle('background:url('+image+') 20% 1% / cover no-repeat;'));
+    	return this._sanitizer.bypassSecurityTrustStyle('background:url('+image+') 20% 1% / cover no-repeat;');
   	}
 
 	goBoards(){

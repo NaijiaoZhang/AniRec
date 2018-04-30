@@ -8,3 +8,16 @@ body{
 	overflow-x:hidden;
 	max-width:100%;
 }
+
+.ui-autocomplete {
+	max-width:35%;
+    background: #4a4a4a;
+    border-radius: 1px;
+    list-style-type: none;
+}
+
+.ui-menu-item:hover{
+	cursor:pointer;
+	color:#4286f4;
+}
+

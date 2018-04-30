@@ -1,7 +1,6 @@
 <div id="what">
   <ul class="horizontal">
     <li><a href="./">AniRec</a></li>
-    <li><div (click)="goBoards()">Boards</div></li>
     <li><a href="https://www.reddit.com/r/anime/">News</a></li>
     <li *ngIf="afAuth.authState | async as user"><div (click)="goMe()">Profile</div></li>
     <li *ngIf="afAuth.authState | async as user; else showLogin"><div (click)="logout()" id="login">Logout</div></li>
