@@ -28,7 +28,6 @@ export class ProfileComponent implements OnInit {
 			this.userData.subscribe(val=>{
 				this.loggedInData=val;
 			});
-
 		});
 	}
 
@@ -44,9 +43,21 @@ export class ProfileComponent implements OnInit {
 
 	receivedText(e){
 		var lines = e.target.result;
-		var readJSON = JSON.parse(lines);
-		//POST REQUEST TO JERRY END POINT HERE:
-		//$.post .... 
+		var readJSON =lines;
+		console.log(readJSON);
+		$.ajax({
+	        type: "POST",
+	        url: '/api/predictRating',
+	        contentType: "application/json",
+	        dataType: "json",
+	        data: readJSON,
+	        success: function(response) {
+	            console.log(response);
+	        },
+	        error: function(response) {
+	            console.log(response);
+	        }
+    	});
 	}
 
 	logout(){

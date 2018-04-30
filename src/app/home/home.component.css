@@ -7,6 +7,11 @@
     width:100%;
 }
 
+.ui-helper-hidden-accessible { 
+  display:none; 
+  position: absolute; left:-999em;
+}
+
 ul{
     width:100%;
     margin-left: 0px;

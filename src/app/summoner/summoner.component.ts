@@ -7,6 +7,8 @@ import { SummonersService } from '../summoners.service';
 import {AngularFireAuth} from 'angularfire2/auth';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 declare var $: any;
 
@@ -19,19 +21,21 @@ declare var $: any;
 export class SummonerComponent implements OnInit {
 	animeTitle:string; 
 	similarTitles;
+	sanitizedImages=[];
 
-
-	constructor(private router:Router,private authService:AuthService,private afAuth: AngularFireAuth,private dataService: SummonersService, private db: AngularFireDatabase, private route: ActivatedRoute, private location:Location) { }
+	constructor(private _sanitizer: DomSanitizer,private router:Router,private authService:AuthService,private afAuth: AngularFireAuth,private dataService: SummonersService, private db: AngularFireDatabase, private route: ActivatedRoute, private location:Location) { }
 
 	ngOnInit() {
 		this.animeTitle = this.route.snapshot.paramMap.get('title');
 		$('.ui-helper-hidden-accessible').remove(); 
 		$.get('./api/simAnime/'+this.animeTitle, data=>{
 			this.similarTitles = data['results'];
-			console.log(this.similarTitles);
 		});
-		// this.getDataFromDb(this.summonerIgn);	
 	}
+
+	public sanitizeImage(image: string) {
+    	return this._sanitizer.bypassSecurityTrustStyle('url('+image+')');
+  	}
 
 	goBoards(){
     	this.router.navigateByUrl('/board');

@@ -14,8 +14,12 @@ h1{
 
 .rectitle{
     margin-top:5%;
+    margin-bottom:3.5%;
 }
 
+.ui-helper-hidden-accessible { 
+  display:none; 
+}
 
 .progress{
     width:25%;
