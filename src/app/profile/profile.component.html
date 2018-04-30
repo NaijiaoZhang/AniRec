@@ -8,17 +8,15 @@
 	  <ng-template #showLogin>
 	  	<li id="login"><div (click)="goLogin()">Login</div></li>
 	  </ng-template>
-	</ul> 
+	</ul>
 <div>
-<div *ngIf="loggedInData;else login">
-	<h2>{{loggedInData.Username}}</h2>
+<div id="background" *ngIf="loggedInData;else login">
+	<h2 id="username">{{loggedInData.Username}}</h2>
 	<div class="igncontainer">
-		IGN: <input [(ngModel)]="loggedInData.IGN" name="newthread" placeholder="Name of Thread..."/>
-		<button class ="btn btn-success" (click)="updateIgn()">Update</button>
-	</div>
-	<div class="igncontainer">
-		Bio: <textarea id="commentbox" [(ngModel)]="loggedInData.Bio" name="newthread" placeholder="Comment..."></textarea><br>
-		<button class ="btn btn-success" (click)="updateBio()">Update</button>
+		<p>Bio:</p>
+		<p id="bio">{{loggedInData.Bio}}</p>
+		<textarea id="commentbox" [(ngModel)]="input_text" name="newthread" placeholder=""></textarea><br>
+		<button class ="btn btn-success" (click)="updateBio()">Update Bio</button>
 	</div>
 	<div class="selectjson">
 		<input type="file" id="files" name="files[]"/>

@@ -17,14 +17,16 @@ export class ProfileComponent implements OnInit {
   	userData:Observable<any>;
   	loggedInUser;
   	loggedInData;
+    input_text;
 
 	constructor(private router:Router,private afAuth: AngularFireAuth, private authService:AuthService,private db: AngularFireDatabase) { }
 
 	ngOnInit() {
 		this.userName = this.afAuth.authState;
+    this.input_text = "";
 		this.userName.subscribe(value=>{
 			this.loggedInUser = value.email;
-			this.userData = this.db.object("profiles/"+this.loggedInUser.replace(/\./g,'%2E')).valueChanges(); 
+			this.userData = this.db.object("profiles/"+this.loggedInUser.replace(/\./g,'%2E')).valueChanges();
 			this.userData.subscribe(val=>{
 				this.loggedInData=val;
 			});
@@ -36,7 +38,7 @@ export class ProfileComponent implements OnInit {
 		var selection = <HTMLInputElement>document.getElementById('files');
 		if(selection.files.length>0){
 			var file = selection.files[0];
-			var fr = new FileReader(); 
+			var fr = new FileReader();
 			fr.onload = this.receivedText;
 			fr.readAsText(file);
 		}
@@ -46,11 +48,11 @@ export class ProfileComponent implements OnInit {
 		var lines = e.target.result;
 		var readJSON = JSON.parse(lines);
 		//POST REQUEST TO JERRY END POINT HERE:
-		//$.post .... 
+		//$.post ....
 	}
 
 	logout(){
-		this.authService.logout(); 
+		this.authService.logout();
 	}
 
 	goBoards(){
@@ -66,11 +68,9 @@ export class ProfileComponent implements OnInit {
   	}
 
 	updateBio(){
-		this.db.object("profiles/"+this.loggedInUser.replace(/\./g,'%2E')+"/Bio").set(this.loggedInData.Bio);
-	}
+    this.loggedInData.Bio = this.input_text
+    this.input_text = "";
+    this.db.object("profiles/"+this.loggedInUser.replace(/\./g,'%2E')+"/Bio").set(this.loggedInData.Bio);
 
-	updateIgn(){
-		this.db.object("profiles/"+this.loggedInUser.replace(/\./g,'%2E')+"/IGN").set(this.loggedInData.IGN);
 	}
-
 }
