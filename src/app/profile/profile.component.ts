@@ -4,6 +4,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -18,27 +20,36 @@ export class ProfileComponent implements OnInit {
   	loggedInUser;
   	loggedInData;
     input_text;
+    similarTitles; 
+    test = "test";
 
-	constructor(private router:Router,private afAuth: AngularFireAuth, private authService:AuthService,private db: AngularFireDatabase) { }
+	constructor(private _sanitizer: DomSanitizer, private router:Router,private afAuth: AngularFireAuth, private authService:AuthService,private db: AngularFireDatabase) { }
 
 	ngOnInit() {
 		this.userName = this.afAuth.authState;
     	this.input_text = "";
 		this.userName.subscribe(value=>{
-			this.loggedInUser = value.email;
-			this.userData = this.db.object("profiles/"+this.loggedInUser.replace(/\./g,'%2E')).valueChanges();
-			this.userData.subscribe(val=>{
-				this.loggedInData=val;
-			});
+			if(value!=null){
+				this.loggedInUser = value.email;
+				this.userData = this.db.object("profiles/"+this.loggedInUser.replace(/\./g,'%2E')).valueChanges();
+				this.userData.subscribe(val=>{
+					this.loggedInData=val;
+				});
+			}
 		});
 	}
+
+	public sanitizeImage(image: string) {
+		console.log(this._sanitizer.bypassSecurityTrustStyle('background:url('+image+') 20% 1% / cover no-repeat;'));
+    	return this._sanitizer.bypassSecurityTrustStyle('background:url('+image+') 20% 1% / cover no-repeat;');
+  	}
 
 	uploadJson(){
 		var selection = <HTMLInputElement>document.getElementById('files');
 		if(selection.files.length>0){
 			var file = selection.files[0];
 			var fr = new FileReader();
-			fr.onload = this.receivedText;
+			fr.onload = this.receivedText.bind(this);
 			fr.readAsText(file);
 		}
 	}
@@ -46,17 +57,29 @@ export class ProfileComponent implements OnInit {
 	receivedText(e){
 		var lines = e.target.result;
 		var readJSON =lines;
-		console.log(readJSON);
+		var that = this; 
+		console.log(this.test);
+		console.log('******');
 		$.ajax({
 	        type: "POST",
 	        url: '/api/predictRating',
 	        contentType: "application/json",
 	        dataType: "json",
 	        data: readJSON,
-	        success: function(response) {
-	            console.log(response);
+	        success: response => {
+	        	var toDisplay=[]; 
+	        	console.log('here')
+	        	console.log(response);
+	        	for(var i=0;i<5;i++){
+	        		toDisplay.push(response['results'][i]);
+	        		response['results'][i]['genre']=response['results'][i]['genre'].replace(/,/g, ', ');
+	        	}
+	            this.similarTitles = toDisplay;
+				for(var k in this.similarTitles){
+					this.similarTitles[k]['url']= that.sanitizeImage(this.similarTitles[k]['url']);
+				}
 	        },
-	        error: function(response) {
+	        error: response => {
 	            console.log(response);
 	        }
     	});
@@ -79,9 +102,8 @@ export class ProfileComponent implements OnInit {
   	}
 
 	updateBio(){
-    this.loggedInData.Bio = this.input_text
-    this.input_text = "";
-    this.db.object("profiles/"+this.loggedInUser.replace(/\./g,'%2E')+"/Bio").set(this.loggedInData.Bio);
-
+	    this.loggedInData.Bio = this.input_text
+	    this.input_text = "";
+	    this.db.object("profiles/"+this.loggedInUser.replace(/\./g,'%2E')+"/Bio").set(this.loggedInData.Bio);
 	}
 }

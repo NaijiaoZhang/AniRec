@@ -1,3 +1,7 @@
+
+body{
+    font-family: "Open Sans", sans-serif;
+}
 h1{
     text-align:center;
     margin-top:1%;
@@ -9,7 +13,7 @@ h2{
 
 h3{
     margin-top:4%;
-    margin-left:2%;
+    margin-left:5%;
 }
 
 input{
@@ -29,7 +33,6 @@ textarea{
 
 }
 #background{
-  background-image: url(../../assets/background.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -67,15 +70,6 @@ textarea{
 
 #threadcontainer{
     margin-left:2%;
-}
-
-.horizontal{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    width:100%;
 }
 
 ul{
@@ -172,7 +166,7 @@ a:hover{
 }
 .card .wrapper {
   background-color: #fff;
-  min-height:200px;
+  min-height:400px;
   min-width:200px;
   max-width:200px;
   position: relative;
@@ -204,12 +198,14 @@ a:hover{
 }
 .card .title {
   margin-top: 10px;
-  max-height: 50px;
-  min-height: 50px;
+  max-height: 40px;
+  min-height: 40px;
+  font-size:17px;
 }
 .card .text {
   height: 70px;
   margin: 0;
+  font-size:12px;
 }
 .card input[type='checkbox'] {
   display: none;
@@ -220,7 +216,6 @@ a:hover{
 }
 
 .example-1 .wrapper {
-  background: url(https://hd.unsplash.com/photo-1463415268136-e52a5af54519) center/cover no-repeat;
 }
 .example-1 .date {
   position: absolute;
@@ -323,4 +318,9 @@ a:hover{
   margin-bottom: 5%;
   margin-top: 0px;
   padding-top: 20px;
+}
+
+.loadingani{
+  margin-left:5%;
+  margin-top:1%;
 }

@@ -31,13 +31,13 @@ export class SummonerComponent implements OnInit {
 		$.get('./api/simAnime/'+this.animeTitle, data=>{
 			this.similarTitles = data['results'];
 			for(var k in this.similarTitles){
+				this.similarTitles[k]['genre']=this.similarTitles[k]['genre'].replace(/,/g, ', ');
 				this.similarTitles[k]['url']= this.sanitizeImage(this.similarTitles[k]['url']);
 			}
 		});
 	}
 
 	public sanitizeImage(image: string) {
-		console.log(this._sanitizer.bypassSecurityTrustStyle('background:url('+image+') 20% 1% / cover no-repeat;'));
     	return this._sanitizer.bypassSecurityTrustStyle('background:url('+image+') 20% 1% / cover no-repeat;');
   	}
 

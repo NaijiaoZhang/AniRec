@@ -1,13 +1,16 @@
-<h1>AniRec</h1>
-<form class="loginform">
-	<div id="login-container">	
-		Email:<br>
-	 	<input [(ngModel)]="email" name="email" placeholder="Email"/><br>
-	 	Password:<br>
-	  	<input [(ngModel)]="password" name="password" placeholder="Password"/><br>
-	  	Username:<br>
-	  	<input [(ngModel)]="username" name="username" placeholder="Username (Sign up only)"/><br>
-	  	<button class ="btn btn-success" (click)=login()>Login</button>
-	  	<button class ="btn btn-success" (click)=register()>Register</button>
-	</div>
-</form>
+<div class="cont">
+  <h1 class="login-title">AniRec</h1>
+  <div class="login-form">
+    <div class="login-row">
+      <input [(ngModel)]="email" type="text" class="login-input name" placeholder="Email"/>
+    </div>
+    <div class="login-row">
+      <input [(ngModel)]="password" type="password" class="login-input pass" placeholder="Password"/>
+    </div>
+     <div class="login-row">
+      <input [(ngModel)]="username" type="text" class="login-input name" placeholder="Username (Sign Up Only)"/>
+    </div>
+    <button type="button" class="login-submit" (click)=login()>Sign in</button>
+    <p class="login-signup">Don't have an account? &nbsp;<a (click)=register()>Sign up</a></p>
+  </div>
+</div>

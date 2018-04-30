@@ -1,7 +1,6 @@
 <div id="what">
   <ul class="horizontal">
     <li><a href="./">AniRec</a></li>
-    <li><div (click)="goBoards()">Boards</div></li>
     <li><a href="https://www.reddit.com/r/anime/">News</a></li>
     <li *ngIf="afAuth.authState | async as user"><div (click)="goMe()">Profile</div></li>
     <li *ngIf="afAuth.authState | async as user; else showLogin"><div (click)="logout()" id="login">Logout</div></li>
@@ -19,7 +18,7 @@
       <div class="data">
         <div class="content">
           <h1 class="title">{{title.name}}</h1>
-          <p class="text">{{title.genre.substring(0,title.genre.length-1)}}</p>
+          <p class="text">{{title.genre.substring(0,title.genre.length-2)}}</p>
           <label for="show-menu" class="menu-button"></label>
         </div>
         <input type="checkbox" id="show-menu" />

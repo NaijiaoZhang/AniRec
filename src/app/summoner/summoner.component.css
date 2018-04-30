@@ -1,30 +1,75 @@
 
-.horizontal{
+body{
+    font-family: "Open Sans", sans-serif;
+}
+h1{
+    text-align:center;
+    margin-top:1%;
+}
+
+h2{
+    text-align: center;
+}
+
+h3{
+    margin-top:4%;
+    margin-left:5%;
+}
+
+input{
+    color:#9b9b9b;
+    width:20%;
+    vertical-align:middle;
+    margin-bottom: 5px;
+}
+
+button{
+  vertical-align:middle;
+}
+
+textarea{
+    color:#9b9b9b;
+    width:20%;
+
+}
+#background{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-bottom:50px;
+}
+.igncontainer{
+    margin-left:5%;
+
+}
+.igncontainer > p {
+    font-size: 24px;
+}
+.igncontainer > p#bio {
+    font-size: 16px;
+}
+.selectjson{
+    margin-left:5%;
+    margin-top:2%;
+}
+
+.board{
+    background-color: #2f4357;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
     width:100%;
+    margin-top:2%;
 }
 
-h1{
-    text-align: center;
+.threads{
+    margin-top:1%;
 }
 
-.rectitle{
-    margin-top:5%;
-    margin-bottom:3.5%;
-}
-
-.ui-helper-hidden-accessible { 
-  display:none; 
-}
-
-.progress{
-    width:25%;
-    margin-left:auto;
-    margin-right:auto;
+#threadcontainer{
+    margin-left:2%;
 }
 
 ul{
@@ -62,22 +107,27 @@ li a:hover {
     background-color: #111;
 }
 
+a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: #111;
+}
+
 #login{
     position:fixed;
     right:0px;
 }
 
-#userinfo{
-    margin-left:2.5%;
-}
-
-#duopercentage{
-    margin-bottom: 2%;
-}
-
 .row {
   min-width:100px;
   margin-left:1%;
+  margin-top:3%;
 }
 
 .card {
@@ -116,7 +166,7 @@ li a:hover {
 }
 .card .wrapper {
   background-color: #fff;
-  min-height: 400px;
+  min-height:400px;
   min-width:200px;
   max-width:200px;
   position: relative;
@@ -148,12 +198,14 @@ li a:hover {
 }
 .card .title {
   margin-top: 10px;
-  max-height: 150px;
-  min-height: 150px;
+  max-height: 40px;
+  min-height: 40px;
+  font-size:17px;
 }
 .card .text {
   height: 70px;
   margin: 0;
+  font-size:12px;
 }
 .card input[type='checkbox'] {
   display: none;
@@ -164,7 +216,6 @@ li a:hover {
 }
 
 .example-1 .wrapper {
-  background: url(https://hd.unsplash.com/photo-1463415268136-e52a5af54519) center/cover no-repeat;
 }
 .example-1 .date {
   position: absolute;
@@ -261,4 +312,15 @@ li a:hover {
 }
 .example-1 .menu-content span {
   top: -10px;
+}
+
+#username{
+  margin-bottom: 5%;
+  margin-top: 0px;
+  padding-top: 20px;
+}
+
+.loadingani{
+  margin-left:5%;
+  margin-top:1%;
 }
